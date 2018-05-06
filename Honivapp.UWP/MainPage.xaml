@@ -1,0 +1,170 @@
+﻿<Page
+    x:Class="Honivapp.UWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Honivapp.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    MaxWidth="300"
+    MaxHeight="400">
+
+    <Grid 
+        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+        >
+        <Pivot 
+            Name="rootPivot" 
+            Title="Honivapp">
+            <PivotItem Header="Honorarios">
+
+                <Grid Name="contentGridHon">
+                    <RelativePanel>
+
+                        <TextBlock 
+                        Name="lblTitleHon"
+                        Text="Ingrese los valores a calcular"
+                        FontWeight="ExtraBold"
+                        RelativePanel.AlignHorizontalCenterWithPanel="True"
+                        RelativePanel.AlignTopWithPanel="True"
+                        Height="20" />
+
+                        <TextBlock
+                        Name="lblHonLiq"
+                        Text="Líquido"
+                        FontWeight="SemiBold"
+                        Height="20"
+                        RelativePanel.Below="lblTitleHon"
+                        Margin="10, 20, 0, 0"/>
+
+                        <TextBox
+                            Name="txtHonLiq"
+                            RelativePanel.Below="lblHonLiq"
+                            RelativePanel.AlignLeftWithPanel="True"
+                            RelativePanel.AlignRightWithPanel="True"
+                            HorizontalAlignment="Stretch"
+                            Margin="10, 5, 10, 0"
+                            InputScope="Number" 
+                            TextChanged="txtHonLiq_TextChanged"/>
+
+                        <TextBlock
+                        Name="lblHonBruto"
+                        Text="Bruto"
+                        FontWeight="SemiBold"
+                        Height="20"
+                        RelativePanel.Below="txtHonLiq"
+                        Margin="10, 20, 0, 0"/>
+
+                        <TextBox
+                            Name="txtHonBruto"
+                            RelativePanel.Below="lblHonBruto"
+                            RelativePanel.AlignLeftWithPanel="True"
+                            RelativePanel.AlignRightWithPanel="True"
+                            HorizontalAlignment="Stretch"
+                            Margin="10, 5, 10, 0"
+                            InputScope="Number" TextChanged="txtHonBruto_TextChanged"/>
+                      
+                    </RelativePanel>                    
+                </Grid>                
+
+            </PivotItem>
+            <PivotItem Header="IVA">
+
+                <Grid Name="contentGridIva">
+                    <RelativePanel>
+
+                        <TextBlock 
+                        Name="lblTitleIva"
+                        Text="Ingrese los valores a calcular"
+                        FontWeight="ExtraBold"
+                        RelativePanel.AlignHorizontalCenterWithPanel="True"
+                        RelativePanel.AlignTopWithPanel="True"
+                        Height="20" />
+
+                        <TextBlock
+                        Name="lblIvaLiq"
+                        Text="Neto"
+                        FontWeight="SemiBold"
+                        Height="20"
+                        RelativePanel.Below="lblTitleIva"
+                        Margin="10, 20, 0, 0"/>
+
+                        <TextBox
+                            Name="txtIvaLiq"
+                            RelativePanel.Below="lblIvaLiq"
+                            RelativePanel.AlignLeftWithPanel="True"
+                            RelativePanel.AlignRightWithPanel="True"
+                            HorizontalAlignment="Stretch"
+                            Margin="10, 5, 10, 0"
+                            InputScope="Number" 
+                            TextChanged="txtIvaLiq_TextChanged"/>
+
+                        <TextBlock
+                            Name="lblIva"
+                            Text="IVA Chile (19%)"
+                            FontWeight="SemiBold"
+                            Height="20"
+                            RelativePanel.Below="txtIvaLiq"
+                            Margin="10, 20, 0, 0"/>
+
+                        <TextBlock
+                            Name="lblIvaVal"
+                            Text=""
+                            FontWeight="SemiBold"
+                            Height="20"
+                            RelativePanel.AlignLeftWith="lblIva"
+                            RelativePanel.AlignLeftWithPanel="False"
+                            RelativePanel.Below="txtIvaLiq"
+                            RelativePanel.AlignRightWithPanel="True"
+                            TextAlignment="Right"
+                            Margin="10, 20, 10, 0"/>
+
+                        <TextBlock
+                        Name="lblIvaBruto"
+                        Text="Bruto"
+                        FontWeight="SemiBold"
+                        Height="20"
+                        RelativePanel.Below="lblIva"
+                        Margin="10, 20, 0, 0"/>
+
+                        <TextBox
+                            Name="txtIvaBruto"
+                            RelativePanel.Below="lblIvaBruto"
+                            RelativePanel.AlignLeftWithPanel="True"
+                            RelativePanel.AlignRightWithPanel="True"
+                            HorizontalAlignment="Stretch"
+                            Margin="10, 5, 10, 0"
+                            InputScope="Number" 
+                            TextChanged="txtIvaBruto_TextChanged"/>
+
+                    </RelativePanel>
+                </Grid>
+
+            </PivotItem>
+
+            
+        </Pivot>
+
+        <RelativePanel>
+            <Button
+                Name="btnClean"
+                RelativePanel.Above="lblCredit"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                HorizontalAlignment="Stretch"
+                Margin="20, 20, 20, 0"
+                Content="Limpiar"
+                Background="red"
+                Foreground="White" 
+                Click="btnClean_Click"/>
+
+            <HyperlinkButton
+                Name="lblCredit"
+                Content="Desarrollado por Gerson Díaz"
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.AlignHorizontalCenterWithPanel="True"
+                NavigateUri="http://www.gersondiaz.cl"/>
+        </RelativePanel>
+        
+    </Grid>
+    
+</Page>
